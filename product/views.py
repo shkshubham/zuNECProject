@@ -8,6 +8,10 @@ class ProductForm(ModelForm):
         model = Product
         fields = ['name', 'description', 'price']
 
+
+def product_home(request, template_name='product/home.html'):
+    return render(request, template_name)
+
 def product_list(request, template_name='product/index.html'):
     product = Product.objects.all()
     data = {}

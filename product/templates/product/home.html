@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <title>zuNec</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <style>
+    .main{
+      margin-top: 50px;
+      min-height: 500px;
+    }
+    </style>
+  </head>
+  <body>
+
+   <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script>
+    $(document).ready(function(){
+        $.ajax({
+            url: "/api/products",
+            type: 'GET',
+            success: function(data) {
+                $.each(data, function (i, product) {
+                  console.log(product);
+                  var product = ('<li class="item">Name:' + product.name + '</li> <p>Description: '+product.description +'</p> <p>'+product.price+'</p>');
+                  $("body").append(product);
+                  });
+            }
+        });
+});
+        </script>
+
+
+  </body>
+</html>
